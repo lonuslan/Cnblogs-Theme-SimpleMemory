@@ -14,7 +14,7 @@
         GhVersions    : 'v1.2.2',
         blogUser      : "userName",
         blogAvatar    : "https://xxxx.png",
-        blogStartDate : "2016-11-17"
+        blogStartDate : "2016-11-17",
     }
 <script>
 ```
@@ -34,7 +34,7 @@
             "https://x1.jpg",
             "https://x2.jpg",
             "https://x3.jpg",
-        ]
+        ],
     }
 <script>
 ```
@@ -42,7 +42,9 @@
 ?> JavaScript 对象是被命名值的容器。值以名称:值对的方式来书写（名称和值由冒号分隔）。
        
 
-## 仓库配置
+## 主题仓库配置
+
+用于设置样式文件加载源的配置。
 
 ### GhUserName - GitHub用户
 
@@ -53,7 +55,7 @@ GitHub用户名(不是昵称)，注意大小写。
 
 ```javascript
 window.cnblogsConfig = {
-    GhUserName: 'BNDong'
+    GhUserName: 'BNDong',
 }
 ```
 
@@ -66,7 +68,7 @@ GitHub主题仓库名称。
 
 ```javascript
 window.cnblogsConfig = {
-    GhRepositories: 'Cnblogs-Theme-SimpleMemory'
+    GhRepositories: 'Cnblogs-Theme-SimpleMemory',
 }
 ```
 
@@ -81,7 +83,7 @@ GitHub发布版本或提交哈希值，根据版本加载代码。
 window.cnblogsConfig = {
     GhVersions: 'v1.1.2',
     // or
-    GhVersions: 'd2c2e52cfef...38998f0e' // 全哈希值，不要使用七位的部分哈希值
+    GhVersions: 'd2c2e52cfef...38998f0e', // 全哈希值，不要使用七位的部分哈希值
 }
 ```
 
@@ -98,7 +100,7 @@ window.cnblogsConfig = {
 
 ```javascript
 window.cnblogsConfig = {
-    blogUser: 'BNDong'
+    blogUser: 'BNDong',
 }
 ```
 
@@ -111,7 +113,7 @@ window.cnblogsConfig = {
 
 ```javascript
 window.cnblogsConfig = {
-    blogAvatar: 'https://pic.cnblogs.com/avatar/1065454/20161119225202.png'
+    blogAvatar: 'https://pic.cnblogs.com/avatar/1065454/20161119225202.png',
 }
 ```
 
@@ -124,7 +126,7 @@ window.cnblogsConfig = {
 
 ```javascript
 window.cnblogsConfig = {
-    blogStartDate: '2019-01-01'
+    blogStartDate: '2019-01-01',
 }
 ```
 
@@ -139,7 +141,7 @@ window.cnblogsConfig = {
 
 ```javascript
 window.cnblogsConfig = {
-    webpageTitleOnblur: '(oﾟvﾟ)ノ Hi'
+    webpageTitleOnblur: '(oﾟvﾟ)ノ Hi',
 }
 ```
 
@@ -150,9 +152,11 @@ window.cnblogsConfig = {
 
 当页面失去焦点，页面title变化的延时时间，单位毫秒。
 
+?> 版本 >= v1.3.3 后该配置值为 -1 时，当页面失去焦点，页面title显示的文字不会变化。
+
 ```javascript
 window.cnblogsConfig = {
-    webpageTitleOnblurTimeOut: 500
+    webpageTitleOnblurTimeOut: 500,
 }
 ```
 
@@ -165,7 +169,7 @@ window.cnblogsConfig = {
 
 ```javascript
 window.cnblogsConfig = {
-    webpageTitleFocus: '(*´∇｀*) 欢迎回来！'
+    webpageTitleFocus: '(*´∇｀*) 欢迎回来！',
 }
 ```
 
@@ -176,9 +180,11 @@ window.cnblogsConfig = {
 
 当页面获取焦点，页面title变化的延时时间，单位毫秒。
 
+?> 版本 >= v1.3.3 后该配置值为 -1 时，当页面获取焦点，页面title显示的文字不会变化。
+
 ```javascript
 window.cnblogsConfig = {
-    webpageTitleFocusTimeOut: 1000
+    webpageTitleFocusTimeOut: 1000,
 }
 ```
 
@@ -191,7 +197,38 @@ window.cnblogsConfig = {
 
 ```javascript
 window.cnblogsConfig = {
-    webpageIcon: "https://gitee.com/dbnuo/Cnblogs-Theme-SimpleMemory/raw/master/img/blog_logo.gif"
+    webpageIcon: "https://cdn.jsdelivr.net/gh/BNDong/Cnblogs-Theme-SimpleMemory@master/img/webp/blog_logo.webp",
+}
+```
+
+### switchDayNight - 日/夜间模式
+
+?> 版本 >= v1.2.8
+
+* 类型：```Object```
+* 默认值：
+
+```json
+{
+    enable: true,       // 是否开启日/夜间模式切换按钮
+    auto: {             // 自动切换相关配置
+        enable: false,  // 开启自动切换
+        dayHour: 5,     // 日间模式开始时间，整数型，24小时制
+        nightHour: 19   // 夜间模式开始时间，整数型，24小时制
+    }
+}
+```
+
+日/夜间模式配置。页面使用日/夜间模式优先级：用户设置 > 自动切换 > 默认。
+
+```javascript
+window.cnblogsConfig = {
+    switchDayNight: {
+        enable: true,
+        auto: {
+            enable: true
+        }
+    },
 }
 ```
 
@@ -207,7 +244,7 @@ window.cnblogsConfig = {
 
 ```javascript
 window.cnblogsConfig = {
-    fontIconExtend: "//at.alicdn.com/t/font_543384_ezv3l7gd9r7.css"
+    fontIconExtend: "//at.alicdn.com/t/font_xxxxxxxxxx.css",
 }
 ```
 
@@ -224,27 +261,27 @@ window.cnblogsConfig = {
 ```javascript
 window.cnblogsConfig = {
     menuCustomList: {
-            "title1": { // 标题
-                "data": [ // 列表数据 ['列表', '链接']
-                    ['我的博客1', 'https://www.cnblogs.com/bndong/'],
-                    ['我的博客2', 'https://www.cnblogs.com/bndong/'],
-                    ['我的博客3', 'https://www.cnblogs.com/bndong/'],
-                    ['我的博客4', 'https://www.cnblogs.com/bndong/'],
-                    ['我的博客5', 'https://www.cnblogs.com/bndong/'],
-                ],
-                "icon": "icon-brush_fill" // 配置图标，参考文档：定制化/字体图标库
-            },
-            "title2": { // 标题
-                "data": [ // 列表数据 ['列表', '链接']
-                    ['我的博客6', 'https://www.cnblogs.com/bndong/'],
-                    ['我的博客7', 'https://www.cnblogs.com/bndong/'],
-                    ['我的博客8', 'https://www.cnblogs.com/bndong/'],
-                    ['我的博客9', 'https://www.cnblogs.com/bndong/'],
-                    ['我的博客10', 'https://www.cnblogs.com/bndong/'],
-                ],
-                "icon": "icon-brush_fill" // 配置图标，参考文档：定制化/字体图标库
-            },
-        }
+        "title1": { // 标题
+            "data": [ // 列表数据 ['列表', '链接']
+                ['我的博客1', 'https://www.cnblogs.com/bndong/'],
+                ['我的博客2', 'https://www.cnblogs.com/bndong/'],
+                ['我的博客3', 'https://www.cnblogs.com/bndong/'],
+                ['我的博客4', 'https://www.cnblogs.com/bndong/'],
+                ['我的博客5', 'https://www.cnblogs.com/bndong/'],
+            ],
+            "icon": "icon-brush_fill" // 配置图标，参考文档：定制化/字体图标库
+        },
+        "title2": { // 标题
+            "data": [ // 列表数据 ['列表', '链接']
+                ['我的博客6', 'https://www.cnblogs.com/bndong/'],
+                ['我的博客7', 'https://www.cnblogs.com/bndong/'],
+                ['我的博客8', 'https://www.cnblogs.com/bndong/'],
+                ['我的博客9', 'https://www.cnblogs.com/bndong/'],
+                ['我的博客10', 'https://www.cnblogs.com/bndong/'],
+            ],
+            "icon": "icon-brush_fill" // 配置图标，参考文档：定制化/字体图标库
+        },
+    },
 }
 ```
 
@@ -256,13 +293,14 @@ window.cnblogsConfig = {
 * 默认值：```[]```
 
 自定义菜单导航，显示在默认导航下方。
+icon 支持与定义，要求版本 >= v1.3.2
 
 ```javascript
 window.cnblogsConfig = {
-    menuNavList: [ // 列表数据 ['导航名称', '链接']
-        ['我的博客1', 'https://www.cnblogs.com/bndong/'],
-        ['我的博客2', 'https://www.cnblogs.com/bndong/'],
-    ]
+    menuNavList: [ // 列表数据 ['导航名称', '链接', 'icon']
+        ['我的博客1', 'https://www.cnblogs.com/bndong/', 'icon-github'],
+        ['我的博客2', 'https://www.cnblogs.com/bndong/', 'icon-github'],
+    ],
 }
 ```
 
@@ -277,7 +315,7 @@ window.cnblogsConfig = {
 
 ```javascript
 window.cnblogsConfig = {
-    menuUserInfoBgImg: 'https://xxx,jpg'
+    menuUserInfoBgImg: 'https://xxx,jpg',
 }
 ```
 
@@ -293,7 +331,7 @@ window.cnblogsConfig = {
     id      : 'top-progress-bar', // 请勿修改该值
     color   : '#77b6ff',
     height  : '2px',
-    duration: 0.2
+    duration: 0.2,
 }
 ```
 
@@ -302,8 +340,8 @@ window.cnblogsConfig = {
 ```javascript
 window.cnblogsConfig = {
     progressBar: {
-         color   : '#77b6ff'
-    }
+         color   : '#77b6ff',
+    },
 }
 ```
 
@@ -319,7 +357,7 @@ window.cnblogsConfig = {
 {
     rebound: {
         tension: 16,
-        friction: 5
+        friction: 5,
     },
     spinner: {
         id: 'spinner',
@@ -330,11 +368,11 @@ window.cnblogsConfig = {
             background: '#f0f0f0',
             stroke: '#272633',
             base: null,
-            child: '#272633'
+            child: '#272633',
         },
         alwaysForward: true, // When false the spring will reverse normally.
         restAt: 0.5,         // A number from 0.1 to 0.9 || null for full rotation
-        renderBase: false
+        renderBase: false,
     }
 }
 ```
@@ -345,13 +383,13 @@ window.cnblogsConfig = {
 window.cnblogsConfig = {
     loading: {
          rebound: {
-             tension: 16
+             tension: 16,
          },
          spinner: {
              id: 'spinner',
-             radius: 90
+             radius: 90,
          }
-    }
+    },
 }
 ```
 
@@ -366,7 +404,7 @@ window.cnblogsConfig = {
 
 ```javascript
 window.cnblogsConfig = {
-    homeTopAnimationRendered: true
+    homeTopAnimationRendered: true,
 }
 ```
 
@@ -380,7 +418,7 @@ window.cnblogsConfig = {
     radius: 15,
     density: 0.2,
     color: 'rgba(255,255,255, .2)', // 颜色设置，“random” 为随机颜色
-    clearOffset: 0.3
+    clearOffset: 0.3,
 }
 ```
 
@@ -389,8 +427,8 @@ window.cnblogsConfig = {
 ```javascript
 window.cnblogsConfig = {
     homeTopAnimation: {
-         color   : 'random'
-    }
+         color   : 'random',
+    },
 }
 ```
 
@@ -403,7 +441,7 @@ window.cnblogsConfig = {
 
 ```javascript
 window.cnblogsConfig = {
-    essayTopAnimationRendered: true
+    essayTopAnimationRendered: true,
 }
 ```
 
@@ -423,6 +461,7 @@ window.cnblogsConfig = {
     trailMaxLength : 30,
     trailIntervalCreation : 100,
     delayBeforeDisappear : 2,
+    colorsRandom: false, // v1.2.4 是否开启随机颜色
     colors: [
         '#96EDA6', '#5BC6A9',
         '#38668C', '#374D84',
@@ -438,8 +477,8 @@ window.cnblogsConfig = {
 window.cnblogsConfig = {
     essayTopAnimation: {
         triW : 14,
-        triH : 20
-    }
+        triH : 20,
+    },
 }
 ```
 
@@ -452,7 +491,7 @@ window.cnblogsConfig = {
 
 ```javascript
 window.cnblogsConfig = {
-    bgAnimationRendered: true
+    bgAnimationRendered: true,
 }
 ```
 
@@ -482,8 +521,8 @@ window.cnblogsConfig = {
 window.cnblogsConfig = {
     backgroundAnimation: {
         colorSaturation: "60%",
-        colorBrightness: "50%"
-    }
+        colorBrightness: "50%",
+    },
 }
 ```
 
@@ -496,7 +535,7 @@ window.cnblogsConfig = {
 
 ```json
 [
-    "https://gitee.com/dbnuo/Cnblogs-Theme-SimpleMemory/raw/master/img/home_top_bg.jpg"
+    "https://cdn.jsdelivr.net/gh/BNDong/Cnblogs-Theme-SimpleMemory@master/img/webp/home_top_bg.webp"
 ]
 ```
 
@@ -505,22 +544,37 @@ window.cnblogsConfig = {
 ```javascript
 window.cnblogsConfig = {
     homeTopImg: [
-        "https://gitee.com/dbnuo/Cnblogs-Theme-SimpleMemory/raw/master/img/home_top_bg.jpg",
-        "https://gitee.com/dbnuo/Cnblogs-Theme-SimpleMemory/raw/master/img/home_top_bg.jpg"
-    ]
+        "https://cdn.jsdelivr.net/gh/BNDong/Cnblogs-Theme-SimpleMemory@master/img/webp/home_top_bg.webp",
+        "https://cdn.jsdelivr.net/gh/BNDong/Cnblogs-Theme-SimpleMemory@master/img/webp/home_top_bg.webp"
+    ],
 }
 ```
 
 ### homeBannerText - 主页banner上的标语
 
-* 类型：```String```
+* 类型：```String``` or ```Array```
 * 默认值：```""```
 
-主页banner上的标语，设置此选项会固定显示文字，默认为空，自动获取一句。
+主页banner上的标语，设置此选项会显示自定义文字，默认为空，自动获取一句。
+
+1) 设置文字，会固定显示该文字。
+
+2) 设置数组，随机从数组中获取一条文字显示。 （版本 >= v1.3.2）
 
 ```javascript
 window.cnblogsConfig = {
-    homeBannerText: "好好学习，天天向上！"
+    homeBannerText: "好好学习，天天向上！",
+}
+
+// or
+
+window.cnblogsConfig = {
+    homeBannerText: [
+        "我是标语一",
+        "我是标语二",
+        "我是标语三",
+        "我是标语四",
+    ],
 }
 ```
 
@@ -535,7 +589,7 @@ window.cnblogsConfig = {
 
 ```javascript
 window.cnblogsConfig = {
-    homeBannerTextType: "one"
+    homeBannerTextType: "one",
 }
 
 /** 所有可配置项
@@ -553,7 +607,7 @@ one：每日获取一句话
 
 ```json
 [
-    "https://gitee.com/dbnuo/Cnblogs-Theme-SimpleMemory/raw/master/img/nothome_top_bg.jpg"
+    "https://cdn.jsdelivr.net/gh/BNDong/Cnblogs-Theme-SimpleMemory@master/img/webp/nothome_top_bg.webp"
 ]
 ```
 
@@ -562,9 +616,24 @@ one：每日获取一句话
 ```javascript
 window.cnblogsConfig = {
     essayTopImg: [
-        "https://gitee.com/dbnuo/Cnblogs-Theme-SimpleMemory/raw/master/img/nothome_top_bg.jpg",
-        "https://gitee.com/dbnuo/Cnblogs-Theme-SimpleMemory/raw/master/img/nothome_top_bg.jpg"
-    ]
+        "https://cdn.jsdelivr.net/gh/BNDong/Cnblogs-Theme-SimpleMemory@master/img/webp/nothome_top_bg.webp",
+        "https://cdn.jsdelivr.net/gh/BNDong/Cnblogs-Theme-SimpleMemory@master/img/webp/nothome_top_bg.webp"
+    ],
+}
+```
+
+### essayTitleStyle - 文章内容标题样式设置
+
+?> 版本 >= v1.3.3
+
+* 类型：```Boolean```
+* 默认值：```"false"```
+
+是否设置文章内容标题样式，默认不设置。
+
+```javascript
+window.cnblogsConfig = {
+    essayTitleStyle: true,
 }
 ```
 
@@ -578,7 +647,7 @@ window.cnblogsConfig = {
     codeImgUrl   : '', // >= v1.1.5 左侧图片设置，不配置使用 window.cnblogsConfig.blogAvatar
     aboutHtml    : '', // 关于博主，不配置使用默认
     copyrightHtml: '', // 版权声明，不配置使用默认
-    supportHtml  : ''  // 声援博主，不配置使用默认
+    supportHtml  : '', // 声援博主，不配置使用默认
 }
 ```
 
@@ -587,14 +656,110 @@ window.cnblogsConfig = {
 ```javascript
 window.cnblogsConfig = {
     essaySuffix: {
-        aboutHtml: "I am a good person"
-    }
+        aboutHtml: "I am a good person",
+    },
 }
 ```
 
-## 代码高亮配置
+### reward - 打赏
 
-### 使用博客园默认高亮
+?> 版本 >= v1.2.7
+
+* 类型：```Object```
+* 默认值：
+
+```json
+{
+    enable: false, // 是否开启打赏功能
+    wechatpay: '', // 微信支付二维码图片URL
+    alipay: '' // 支付宝支付二维码图片URL
+}
+```
+
+文章打赏按钮，显示在页面右下角。
+
+```javascript
+window.cnblogsConfig = {
+    reward: {
+        enable: true,
+        wechatpay: '//xxxx.png',
+    },
+}
+```
+
+### weChatOfficialAccounts - 公众号
+?> 版本 >= v1.3.2
+
+* 类型：```Url```
+* 默认值：`""`
+
+公众号二维码图片，显示在页面右下角。
+只在文章页显示公众号，首页不显示。
+
+```javascript
+window.cnblogsConfig = {
+    weChatOfficialAccounts: '//xxxx.png',
+}
+```
+
+## 代码相关配置
+
+### codeMaxHeight - 限制代码框高度
+
+?> 版本 >= v1.2.5
+
+* 类型：```Boolean```
+* 默认值：```"false"```
+
+限制代码框的最大高度；如开启，代码框高度不会超过页面可视区域的70%，隐藏部分通过滚动的方式查看。
+
+```javascript
+window.cnblogsConfig = {
+    codeMaxHeight: true,
+}
+```
+
+### codeLineNumber - 代码行号渲染
+
+?> 版本 >= v1.3.0
+
+* 类型：```Boolean```
+* 默认值：```"false"```
+
+是否渲染代码行号，如开启会在代码框左侧增加行号显示，默认不开启。
+不与博客园行号渲染兼容，如果博客园添加代码时勾选显示行号并同时开启此配置，会出现双行号的现象。大家自己权衡使用此配置。
+
+```javascript
+window.cnblogsConfig = {
+    codeLineNumber: true,
+}
+```
+
+### essayCode - 代码框统一样式设置
+
+?> 版本 >= v1.2.9
+
+* 类型：```Object```
+* 默认值：
+
+```json
+{
+    fontFamily: "'Ubuntu Mono',monospace", // 代码框字体
+    fontSize: "14px" // 代码框字体大小
+}
+```
+
+代码框统一样式设置，目前只有字体设置，看需求后续可能会增加配置项。
+
+```javascript
+window.cnblogsConfig = {
+    essayCode: {
+        fontSize: "16px",
+    },
+}
+```
+
+### 使用博客园默认代码样式
 
 #### essayCodeHighlightingType
 
@@ -605,7 +770,7 @@ window.cnblogsConfig = {
 
 ```javascript
 window.cnblogsConfig = {
-    essayCodeHighlightingType: "cnblogs"
+    essayCodeHighlightingType: "cnblogs",
 }
 ```
 
@@ -616,7 +781,7 @@ window.cnblogsConfig = {
 
 当使用博客园代码高亮样式时，此配置不会对渲染产生影响。
 
-### 使用 highlightjs
+### 使用 highlightjs 渲染代码
 
 * 相关文档：[highlight](https://bndong.github.io/Cnblogs-Theme-SimpleMemory/v1.1/#/Docs/Guide/highlight)
 
@@ -625,11 +790,11 @@ window.cnblogsConfig = {
 * 类型：```String```
 * 默认值：```"cnblogs"```
 
-使用```highlightjs```插件渲染代码高亮。
+使用 ```highlightjs``` 插件渲染代码高亮。
 
 ```javascript
 window.cnblogsConfig = {
-    essayCodeHighlightingType: "highlightjs"
+    essayCodeHighlightingType: "highlightjs",
 }
 ```
 
@@ -642,7 +807,7 @@ highlightjs 代码高亮主题：[demo](https://highlightjs.org/static/demo/)
 
 ```javascript
 window.cnblogsConfig = {
-    essayCodeHighlighting: "a11y-dark"
+    essayCodeHighlighting: "a11y-dark",
 }
 
 /** 所有可配置项
@@ -662,7 +827,29 @@ default、a11y-dark、a11y-light、agate、an-old-hope、androidstudio、arduino
 */
 ```
 
-### 使用 prettify
+#### essayCodeLanguages
+
+* 类型：```Array```
+* 默认值：```[]```
+
+?> 版本 >= v1.3.3
+
+使用 ```highlightjs``` 插件渲染代码高亮时，限制自动识别语言时的语言范围。
+
+支持配置的语言：[Languages](https://github.com/highlightjs/highlight.js/blob/master/SUPPORTED_LANGUAGES.md)
+
+```javascript
+window.cnblogsConfig = {
+    essayCodeLanguages: [
+        "G-Code",
+        "PHP",
+        "python",
+        "SQL",
+    ],
+}
+```
+
+### 使用 prettify 渲染代码
 
 #### essayCodeHighlightingType
 
@@ -673,7 +860,7 @@ default、a11y-dark、a11y-light、agate、an-old-hope、androidstudio、arduino
 
 ```javascript
 window.cnblogsConfig = {
-    essayCodeHighlightingType: "prettify"
+    essayCodeHighlightingType: "prettify",
 }
 ```
 
@@ -686,7 +873,7 @@ prettify 代码高亮主题（需梯子访问）：[demo](https://rawgit.com/goo
 
 ```javascript
 window.cnblogsConfig = {
-    essayCodeHighlighting: "obsidian"
+    essayCodeHighlighting: "obsidian",
 }
 
 /** 所有可配置项
@@ -715,10 +902,9 @@ footerStyle: 2
 
 ```javascript
 window.cnblogsConfig = {
-    footerStyle: 1
+    footerStyle: 1,
 }
 ```
-
 
 ### bottomBlogroll - 友情链接
 
@@ -735,7 +921,7 @@ window.cnblogsConfig = {
         ["申请坑位", 'https://msg.cnblogs.com/send/BNDong'],
         ["申请坑位", 'https://msg.cnblogs.com/send/BNDong'],
         ["申请坑位", 'https://msg.cnblogs.com/send/BNDong'],
-    ]
+    ],
 }
 ```
 
@@ -746,7 +932,12 @@ window.cnblogsConfig = {
 
 ```json
 {
-    icon: "❤️",
+    icon: "❤️",   // v1.3.0 已废弃该配置
+    iconFont: {  // v1.3.0 新增配置
+        icon:  "icon-xl", // iconfont 图标名称
+        color: "red",     // 图标颜色
+        fontSize: "16px"  // 图标大小
+    },
     left : "",
     right: ""
 }
@@ -760,8 +951,8 @@ window.cnblogsConfig = {
 window.cnblogsConfig = {
     bottomText: {
         left : "好好学习",
-        right: "天天向上"
-    }
+        right: "天天向上",
+    },
 }
 ```
 
@@ -779,7 +970,42 @@ window.cnblogsConfig = {
     consoleList: [
          ['BNDong CNBlogs', 'https://www.cnblogs.com/bndong'],
          ['BNDong GitHub', 'https://github.com/BNDong'],
-         ['BNDong Email', 'dbuo@foxmail.com']
-    ]
+         ['BNDong Email', 'dbuo@foxmail.com'],
+    ],
+}
+```
+
+## 广告
+
+### advertising
+
+?> 版本 >= v1.3.0
+
+* 类型：```Boolean```
+* 默认值：```true```
+
+是否显示博客园广告。
+
+```javascript
+window.cnblogsConfig = {
+    advertising: true,
+}
+```
+
+## 版本映射
+
+### isVersionMapping
+
+?> 版本 >= v1.2.6
+
+* 类型：```Boolean```
+* 相关文档：[版本映射](https://bndong.github.io/Cnblogs-Theme-SimpleMemory/v1.1/#/Docs/Guide/versionMapping)
+* 默认值：```false```
+
+是否开启版本映射，默认关闭。
+
+```javascript
+window.cnblogsConfig = {
+    isVersionMapping: true,
 }
 ```
